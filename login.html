@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="form.css">
+    <script src="formulario.js" defer></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="formulario container">
+        <form id="form" class="form">
+            <div class="form-group mt-3">
+                <label for="username" class="form-label">Digite o seu nome:</label>
+                <input class="form-control input-control" id="username" name="username" type="text">
+                <div class="error"></div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="email">E-mail</label >
+                <input class="form-control input-control" id="email" name="email" type="email" placeholder="Digite o seu E-mail:">
+                <div class="error"></div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="password">senha</label >
+                <input class="form-control input-control" id="password" name="password" type="password" placeholder="Digite a sua senha:">
+                <div class="error"></div>
+            </div>
+            <div class="checkbox">
+                <label for="form-check-label"></label>
+                <input class="form-check-input mt-3" type="checkbox" id="check">
+            </div>
+            <button class="btn btn-lg btn-primary w-100 mt-3 botao" type="submit">enviar</button>
+        </form>
+    </div>
+</body>
+</html>
