@@ -9,6 +9,8 @@ function toggle(openModal){
 }
 */
 
+let confirmarCancelamento = 0
+
 const formulario = document.getElementById('formulario')
 
 let modal = document.getElementById('modal')
@@ -47,7 +49,7 @@ let pegarPosts = async () =>{
         <td class="${tarefa.status}">${tarefa.status}</td>
         <td class="d-flex">
             <div onclick="editarQuestao(${tarefa.id})"><img class="icon" src="pencil.png"></div>
-            <div onclick="deletarQuestao(${tarefa.id})"><img class="icon" src="delete.png"></div>
+            <div onclick="abrirModalDois(${tarefa.id})"><img class="icon" src="delete.png"></div>
         </td>
     </tr>`
     })
@@ -144,11 +146,12 @@ const limparCampos = () => {
     document.getElementById('data').value = ''
 }
 
-const deletarQuestao = async (id) => {
-    await fetch(`http://localhost:3000/tarefas/${id}`,{
+const deletarQuestao = async () => {
+    await fetch(`http://localhost:3000/tarefas/${confirmarCancelamento}`,{
         method: 'DELETE'
     })
     pegarPosts()
+    confirmarCancelamento = 0
 }
 
 // pegando tarefa para editar
@@ -215,4 +218,13 @@ function alterarData(data){
     let dataTarefa = new Date(data.split('-'))/* .join('/')) */;
     return dataTarefa.toLocaleDateString('pt-BR');
 
+}
+ 
+function abrirModalDois(id){
+    modalDois.style.display = 'block'
+    confirmarCancelamento = id
+}
+
+function fecharModalDelete(){
+    modalDois.style.display = 'none'
 }

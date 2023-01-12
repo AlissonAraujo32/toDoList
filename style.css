@@ -188,8 +188,9 @@ body.active {
   color: #eb5757;
 }
 
+
 .plano-fundo-dois {
-  display: ;
+  display: none;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -204,6 +205,9 @@ body.active {
     margin: 10px;
     height: 40px;
     border-radius: 10px;
+}
+
+.confirmacao .corbtn{
     background: var(--primary);
 }
 
