@@ -1,11 +1,3 @@
 {
-  "tarefas": [
-    {
-      "numero": "55876062",
-      "descricao": "teste1",
-      "data": "2023-01-19",
-      "status": "concluido",
-      "id": 1
-    }
-  ]
+  "tarefas": []
 }
