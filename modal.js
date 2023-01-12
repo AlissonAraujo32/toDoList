@@ -35,7 +35,7 @@ window.addEventListener("click", (event)=>{
 let tarefas = []
 
 let pegarPosts = async () =>{
-    let resposta = await fetch ("http://localhost:3000/tarefas")
+    let resposta = await fetch ("https://backend-production-4b08.up.railway.app/tarefas")
     let tarefas = await resposta.json()
     let conteudo = document.getElementById('conteudo')
     conteudo.innerHTML= ''
@@ -57,7 +57,7 @@ let pegarPosts = async () =>{
 
 
 let adicionaTarefa = async (tarefa) =>{
-    await fetch("http://localhost:3000/tarefas",{
+    await fetch("https://backend-production-4b08.up.railway.app/tarefas",{
         method: "POST",
         headers:{
             'Accept':'application/json, text/plain, */*',
@@ -147,7 +147,7 @@ const limparCampos = () => {
 }
 
 const deletarQuestao = async () => {
-    await fetch(`http://localhost:3000/tarefas/${confirmarCancelamento}`,{
+    await fetch(`https://backend-production-4b08.up.railway.app/tarefas/${confirmarCancelamento}`,{
         method: 'DELETE'
     })
     pegarPosts()
@@ -173,7 +173,7 @@ const editarQuestao = async (id) =>{
 }
 
 let getTarefa = async (id) => {
-    let response = await fetch(`http://localhost:3000/tarefas/${id}`)
+    let response = await fetch(`https://backend-production-4b08.up.railway.app/tarefas/${id}`)
     let tarefa = await response.json()
     return tarefa
 }
