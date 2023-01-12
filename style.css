@@ -204,7 +204,9 @@ body.active {
     margin: 10px;
     height: 40px;
     border-radius: 10px;
+    background: var(--primary);
 }
+
 .modal-confirm {
   background-color: white;
   border: 1px solid black;
