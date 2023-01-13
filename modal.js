@@ -73,7 +73,7 @@ let adicionaTarefa = async (tarefa) =>{
 }
 
 let callPut = async function(tarefa){
-    await fetch(`http://localhost:3000/tarefas/${operacaoCorrente.id}`,{
+    await fetch(`https://backend-production-4b08.up.railway.app/tarefas/${operacaoCorrente.id}`,{
         method: "PUT",
         headers:{
             'Accept':'application/json, text/plain, */*',
