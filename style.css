@@ -212,6 +212,8 @@ body.active {
 }
 
 .modal-confirm {
+  display: flex;
+  justify-content: space-around;
   background-color: white;
   border: 1px solid black;
   border-radius: 10px;

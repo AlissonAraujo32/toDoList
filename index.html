@@ -2,129 +2,99 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <script src="modal.js" defer></script>
-
-    <title>Projeto Modulo Um</title>
+    <link rel="stylesheet" href="landPage.css">
+    <script src="landPage.js"></script>
+    <title>Document</title>
 </head>
 
-<body onload="pegarPosts()">
-    <!--DARK MODE-->
-    <div class="separar" id="trocaCor">
-        <i class="indicator"></i>
-    </div>
-    <div>
-        <div class="polygon-one">&nbsp;</div>
-    </div>
-    <div>
-        <div class="polygon-second">&nbsp;</div>
-    </div>
-    <div class="p-5 ajuste">
-        <header class="m-3 padrao-cor">
-            <div>
+<body>
+    <div class="fundo">
+        <div class="p-5 ajuste navbar d-flex bg-dark linha">
+            <div class="navbar-brand">
                 <img src="logo.png" alt="logo">
             </div>
-            <div>
-                <div class="d-flex pt-5 gap-3 padrao-cor">
-                    <img src="clipboard.svg" alt="clipboard">
-                    <h3>Gerenciador de tarefas</h3>
-                </div>
-                <button class="btn btn-lg btn-outline-primary mt-3 button" type="submit" onclick="openModal()">+
-                    Adicionar
-                    nova tarefa</button>
+            <div class="navbar">
+                <nav class="navbar-nav">
+                    <ul class="lista d-flex">
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="#">Home</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="#">Contatos</a>
+                        </li>
+                        <li class="navbar-item">
+                            <a class="navbar-link" href="#">Sobre</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </header>
-        <div class="pt-3 mt-5">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Núm</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Data de entrega</th>
-                        <th scope="col">status</th>
-                        <th scope="col">Ação</th>
-                    </tr>
-                </thead>
-                <tbody id="conteudo">
-                    <!--
-                    <tr>
-                        <th scope="row">8</th>
-                        <td>Edição da tarefa- teste</td>
-                        <td>30/05/2022</td>
-                        <td>Em andamento</td>
-                        <td class="d-flex">
-                            <img class="icon" src="pencil.png">
-                            <img class="icon" src="delete.png">
-                        </td>
-                    -->
-                    </tr>
-                </tbody>
-            </table>
+            <button class="btn btn-warning botao" type="submit">QUERO SER UM PROGRAMADOR</button>
         </div>
-    </div>
-    <div id="modalDois" class="plano-fundo-dois">
-        <div class="modal-confirm" >
-            <button class="confirmacao" onclick="fecharModalDelete()">Cancelar exclusão</button>
-            <button class="confirmacao corbtn" onclick="deletarQuestao()"> Confirmar exclusão</button>
-        </div>
-    </div>
-    <div>
-        <div class="polygon">&nbsp;</div>
-    </div>
+        <div class="d-flex fundao">
+            <div class="container">
+                <h1 class="title">Aprenda a construir software com quem sabe fazer e ensinar</h1>
+                <p>
+                    Em até 12 meses você poderá se tornar o profissional desejado pelo mercado e capaz de trabalhar em
+                    todos os estágios de desenvolvimento de softwares, sites e apps, desde a interface até estruturas
+                    internas e bancos de dados.</p>
 
-    <div id="modal" class="plano-fundo">
-        <div class="formulario" method="post">
-            <form id="formulario" class="form">
-                <div class="d-flex justify-content-between">
-                    <h3>Editar tarefa</h3>
-                    <button type="reset" class="closeX btn-close" onclick="closeModal()"></button>
-                </div>
-                
-                <div>
-                    <div class="mb-3 input">
-                        <label for="numero" class="form-label">Numero</label>
-                        <input id="numero" name="numero" type="number" class="form-control">
-                        <small></small>
+                <di>
+                    <div>
+                        <P class="cartao">
+                            Comece a estudar agora e pague somente quando estiver trabalhando e ganhando R$2.500 por mês
+                        </P>
                     </div>
-                    <div class="mb-3 input">
-                        <label for="descricao" class="form-label">Descrição</label>
-                        <input id="descricao" name="descricao" type="text" class="form-control">
-                        <small></small>
-                    </div>
-                    <div class="mb-3 input">
-                        <label for="data" class="form-label">Data</label>
-                        <input id="data" name="data" type="date" class="form-control">
-                        <small></small>
-                    </div>
-                    <div class="mb-3 input">
-                        <label for="status">Status</label>
-                        <br>
-                        <select id="opcoes" class="input">
-                            <option disabled>Selecione</option>
-                            <option value="concluido">Concluido</option>
-                            <option value="emAndamento">Em andamento</option>
-                            <option value="parada">Parada</option>
-                        </select>
-                    </div>
-                    <div class="mt-5 button-second">
-                        <button id="close-modal" class="btn btn-lg btn-outline-primary button " type="submit"
-                            onclick="closeModal">Cancelar</button>
-                        <button id="subscribe" class="btn btn-lg btn-outline-primary button " type="submit">Salvar</button>
+                </di>
+                <button class="btn btn-warning botao" type="submit">QUERO SER UM PROGRAMADOR</button>
+            </div>
+            <div class="imagem">
+                <img src="/programador.webp">
+            </div>
+        </div>
+    </div>
+    <section id="container">
+        <div class="box-timer">
+            <h2>Próxima turma começa em:</h2>
+            <div class="box-timer-clock d-flex">
+                <div class="box d-flex">
+                    <div class="box-timer-numbers d-flex">
+                        <div class="conteudo d-flex flex-column"><span class="day"></span>
+                            <p>Dias</p>
+                        </div>
+
+                        <div class="conteudo d-flex flex-column"><span class="hour"></span>
+                            <p>Horas</p>
+                        </div>
+
+                        <div class="conteudo d-flex flex-column"><span class="minute"></span>
+                            <p>Minutos</p>
+                        </div>
+
+                        <div class="conteudo d-flex flex-column"><span class="second"></span>
+                            <p>Segundos</p>
+                        </div>
                     </div>
                 </div>
-            </form>
+                <div class="box-button">
+                    <p>Dia 30/01/2023 começam as nossas aulas.
+                        Não perca tempo e faça sua matrícula.</p>
+                    <button class="btn btn-warning butao" type="button">QUERO ME INSCREVER</button>
+                </div>
+            </div>
         </div>
+    </section>
+    <div class="title">
+        <h1>Projeto inicial:</h1>
+        <button class="btn btn-warning butao" type="button">
+            <a href="/login.html">CLICK AQUI</a>
+        </button>  
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
+   
 </body>
 
 </html>

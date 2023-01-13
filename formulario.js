@@ -69,7 +69,7 @@ const validateInputs = ()=>{
     if(!fieldsValid){
         return
     }
-    window.location.href = '/index.html'
+    window.location.href = '/modal.html'
 
 }
 
