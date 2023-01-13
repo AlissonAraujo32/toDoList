@@ -11,6 +11,8 @@ function toggle(openModal){
 
 let confirmarCancelamento = 0
 
+const modalDois = document.getElementById('modalDois')
+
 const formulario = document.getElementById('formulario')
 
 let modal = document.getElementById('modal')
@@ -20,6 +22,7 @@ let openModal = () =>{
 }
 
 function closeModal() {
+    modalDois.style.display = 'none'
     modal.style.display = 'none'
     document.getElementById('numero').value = ''
     document.getElementById('descricao').value = ''
@@ -89,6 +92,44 @@ let callPut = async function(tarefa){
     operacaoCorrente = null
 }
 
+formulario.addEventListener('change', (event) =>{
+    let numero = formulario.elements['numero'].value
+    let descricao = formulario.elements['descricao'].value
+    let data = formulario.elements['data'].value
+
+    let status = formulario.elements['opcoes'].value
+
+// validando campos
+
+    if(!numero.trim() || !numero){
+        mostrarErro(formulario.elements['numero'],'Campo número está vazio')
+        return 
+    } else if(numero){
+        mostrarSucesso(formulario.elements['numero'])
+    }
+
+    if(!descricao.trim() || !descricao){
+        mostrarErro(formulario.elements['descricao'],'Por favor, descreva a atividade')
+        return 
+    } else if(numero){
+        mostrarSucesso(formulario.elements['descricao'])
+    }
+
+    if(!data.trim() || !data){
+        mostrarErro(formulario.elements['data'],'Por favor, escolha uma data')
+        return 
+    } else if(numero){
+        mostrarSucesso(formulario.elements['data'])
+    }
+
+    if(!opcoes){
+        mostrarErro(formulario.elements['opcoes'],'Escolha um status')
+        return 
+    }
+    let inscrever = document.getElementById('subscribe')
+    inscrever.classList.add('active')
+})
+
 formulario.addEventListener('submit', async (event)=>{
     event.preventDefault()
 
@@ -135,8 +176,9 @@ formulario.addEventListener('submit', async (event)=>{
     }
 
     editando ? await callPut(tarefa): await adicionaTarefa(tarefa)
-
+    let inscrever = document.getElementById('subscribe')
     closeModal()
+    inscrever.classList.remove('active')
     await pegarPosts()
 })
 
@@ -151,6 +193,7 @@ const deletarQuestao = async () => {
         method: 'DELETE'
     })
     pegarPosts()
+    closeModal()
     confirmarCancelamento = 0
 }
 
@@ -227,4 +270,5 @@ function abrirModalDois(id){
 
 function fecharModalDelete(){
     modalDois.style.display = 'none'
+    closeModal()
 }
